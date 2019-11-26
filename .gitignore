@@ -1,0 +1,10 @@
+*.pyc
+*.tgz
+*.tar.gz
+maildir/
+*.pkl
+*.vscode
+*.ipynb_checkpoints
+automl.log
+data
+.azureml
