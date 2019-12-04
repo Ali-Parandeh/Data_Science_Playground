@@ -34,5 +34,6 @@ print(nums)
 '''
 
 '''
-Using numpy arrays allows you to take advantage of an array's memory efficient nature and easily perform mathematical operations on your data.
+Using numpy arrays allows you to take advantage of an array's memory efficient 
+nature and easily perform mathematical operations on your data.
 '''
