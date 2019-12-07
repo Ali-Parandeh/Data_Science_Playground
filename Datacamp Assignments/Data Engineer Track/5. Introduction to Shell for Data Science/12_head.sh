@@ -1,0 +1,5 @@
+$ head people/agarwal.txt
+# name: Agarwal, Jasmine
+# position: RCT2
+# start: 2017-04-01
+# benefits: full
