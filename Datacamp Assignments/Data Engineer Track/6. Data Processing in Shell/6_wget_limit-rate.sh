@@ -24,3 +24,18 @@ ls
 # We downloaded 3 related data files to our local directory. 
 # Remember that by default, the download rate is in Bytes per 
 # second. In order to download in 2500KB/s, remember the unit KB/s is needed as well!
+
+
+# HTTP request sent, awaiting response... 200 OK
+# Length: 4293170 (4.1M) [text/csv]
+# Saving to: 'Spotify201809.csv'
+
+# Spotify201809.csv   100%[===================>]   4.09M  2.51MB/s    in 1.6s
+
+# 2019-12-09 02:32:08 (2.51 MB/s) - 'Spotify201809.csv' saved [4293170/4293170]
+
+# FINISHED --2019-12-09 02:32:08--
+# Total wall clock time: 5.1s
+# Downloaded: 3 files, 13M in 5.1s (2.61 MB/s)
+# Spotify201809.csv  Spotify201811.csv  __MACOSX  bin
+# Spotify201810.csv  Spotify201812.csv  backup    url_list.txt
