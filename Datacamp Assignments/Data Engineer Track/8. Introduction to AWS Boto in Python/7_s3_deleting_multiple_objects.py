@@ -11,7 +11,13 @@
 # Sam has initialized the client and assigned it to the s3 variable. 
 # Help her clean out all records for 2018 from S3!
 
+import boto3
 
+# Create boto3 client to S3
+s3 = boto3.client('s3', region_name='us-east-1', 
+                         aws_access_key_id=AWS_KEY_ID, 
+                         aws_secret_access_key=AWS_SECRET)
+                         
 # List only objects that start with '2018/final_'
 response = s3.list_objects(Bucket='gid-staging', 
                            Prefix='2018/final_')
