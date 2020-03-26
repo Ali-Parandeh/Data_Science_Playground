@@ -16,7 +16,7 @@ print('channels: %d' % (image.shape[2]))
 # Show he image and wait for a keypress.
 # 0 Means any key press will un pause execution
 cv2.imshow('Image', image)
-cv2.waitKey(0)
+# cv2.waitKey(0)
 
 # save the image - OpenCV handles converting filetypes
 # automatically
