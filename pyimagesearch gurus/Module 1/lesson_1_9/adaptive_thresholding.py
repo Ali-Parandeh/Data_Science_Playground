@@ -19,7 +19,7 @@ cv2.imshow("Image", image)
 # each neighborhood -- in this example, we'll calculate the mean value
 # of the neighborhood area of 25 pixels and threshold based on that value;
 # finally, our constant C is subtracted from the mean calculation (in this
-# case 15)
+# case 15). constant C simply lets us fine tune our threshold value.
 thresh = cv2.adaptiveThreshold(blurred, 255,
                                cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 25, 15)
 cv2.imshow("OpenCV Mean Thresh", thresh)
@@ -27,5 +27,5 @@ cv2.imshow("OpenCV Mean Thresh", thresh)
 # scikit-image adaptive thresholding
 T = threshold_local(blurred, 29, offset=5, method= "gaussian")
 thresh = (blurred < T).astype('uint8') * 255
-cv2.imshow("sci-kit Mean Thresh", thresh)
+cv2.imshow("scikit image Mean Thresh", thresh)
 cv2.waitKey(0)
