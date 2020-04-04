@@ -1,0 +1,50 @@
+"""
+mage gradients are one of the most important image processing and computer vision
+building blocks you’ll learn about. Behind the scenes, they are used
+for powerful image descriptor methods such as Histogram of Oriented Gradients and SIFT.
+They are used to construct saliency maps to reveal the most “interesting” regions of an image
+"""
+
+# import the necessary packages
+import numpy as np
+import argparse
+import cv2
+
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True, help="Path to the image")
+ap.add_argument("-l", "--lower-angle", type=float, default=175.0,
+                help="Lower orientation angle")
+ap.add_argument("-u", "--upper-angle", type=float, default=180.0,
+                help="Upper orientation angle")
+args = vars(ap.parse_args())
+
+# load the image, convert it to grayscale, and display the original
+# image
+image = cv2.imread(args["image"])
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imshow("Original", image)
+
+# compute the gradients along the x and y axis, respectively
+gx = cv2.Sobel(gray, cv2.CV_64F, 1, 0)
+gy = cv2.Sobel(gray, cv2.CV_64F, 0, 1)
+
+# compute the gradient magnitude and orientation respectively
+mag = np.sqrt((gx **2) + (gy **2))
+orientation = np.arctan2(gy, gx) * (180/np.pi) % 180
+
+# find all pixels that are within the upper and lower angle boundaries
+'''
+NOTE: np.where(condition, array, value_to_broadcast_on_false_items)
+Look for indices that are greater than the minimum supplied angle
+-1 is the value if the check does not pass. In the case that the orientation is less than 
+the minimum angle requirement, set that particular value to -1.
+'''
+idxs = np.where(orientation >= args['lower_angle'], orientation, -1)
+idxs = np.where(orientation <= args['upper_angle'], idxs, -1)
+mask = np.zeros(gray.shape, dtype='uint8')
+mask[idxs > -1] = 255
+
+# show the images
+cv2.imshow('Mask', mask)
+cv2.waitKey(0)
