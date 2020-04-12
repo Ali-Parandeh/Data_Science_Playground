@@ -14,6 +14,10 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 # apply histogram equalization to stretch the contrast of our image
 eq = cv2.equalizeHist(image)
 
+# EXERCISE: Value of pixel at x=146, y=272 after equalisation:
+pixel = eq[272, 146]
+print(f'Value of pixel at (146, 272) is {pixel}')
+
 # show our images -- notice how the contrast of the second image has
 # been stretched
 cv2.imshow("Original", image)
